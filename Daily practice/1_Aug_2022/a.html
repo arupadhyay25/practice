@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #body{
+        display: flex;
+        justify-content: center;
+    }
+    #body>img{
+        width: 300px;
+        height: 300px;
+    }
+    #input{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 30px;
+        gap: 30px;
+    }
+</style>
+<body>
+    <div id="body"></div>
+</body>
+</html>
+
+<script>
+let count=0
+let time=2000
+let id=setInterval(abhi,time)
+let arr=JSON.parse(localStorage.getItem("imageArr"))|| alerthem()
+
+function alerthem(){
+    alert('Please Add Images');
+    location.href='b.html';
+}
+
+let images=document.createElement("img")
+function abhi(){
+    images.src=arr[count]
+    document.getElementById("body").append(images)
+    count++
+    if(count==arr.length){
+        count=0
+    }
+}
+</script>
